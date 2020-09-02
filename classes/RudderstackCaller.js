@@ -4,7 +4,7 @@ class RudderstackCaller {
     this.apiCredentials = apiKeys.credentials;
 
     this.baseUrl = (dataplane) =>
-      `https://${dataplane}-dataplane.rudderstack.com/protocols`;
+      `https://${dataplane}-dataplane.rudderstack.com/schemas`;
 
   }
 
@@ -18,7 +18,7 @@ class RudderstackCaller {
 
     try {
       const { baseUrl } = this;
-      const url = baseUrl(dataplane) + `/event-versions?eventID=${eventModelId}`;
+      const url = baseUrl(dataplane) + `/event-versions?EventID=${eventModelId}`;
       const key = this.apiCredentials[dataplane];
       if (!key) {
         result.errors.push("no api key for", dataplane);
